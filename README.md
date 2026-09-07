@@ -36,7 +36,7 @@ Pooling data across subjects performed close to chance level, while individual s
 illiteracy,"** a documented phenomenon in BCI research where a meaningful subset of
 individuals do not produce strongly decodable motor imagery signals, likely due to differences in task engagement, imagery vividness, and individual neuroanatomy. 
 
-[Per-subject accuracy] (Result1_subject_accuracy.png)
+![Per-subject accuracy](Result1_subject_accuracy.png)
 
 ## Status
 🚧 In progress — classical ML (CSP + SVM) baseline complete. Deep learning (CNN)
