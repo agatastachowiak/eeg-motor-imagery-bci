@@ -20,10 +20,11 @@ up to 50 subjects, imagined left/right fist movement runs (runs 4, 8, 12), 64-ch
 - **Epoching:** trials segmented around each movement cue (-0.5s to 2s)
 - **Classical approach:** Common Spatial Patterns (CSP) feature extraction + linear SVM, the standard method in motor imagery BCI research
 - **Deep learning approach:** compact EEGNet-style CNN, learning spatial and temporal patterns directly from raw epoch data
+- Analyses conducted at two scales (10 and 50 subjects) to examine how dataset size affects each method.
 - All results evaluated with 5-fold cross-validation (CSP+SVM) or held-out validation
   split (CNN)
 
-## Key finding
+## Key findings
 
 ### 1. Individual variability strongly affects pooled decoding
 | Approach (10 subjects)| Accuracy |
