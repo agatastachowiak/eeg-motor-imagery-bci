@@ -38,7 +38,7 @@ motor imagery signals, likely due to differences in task engagement, imagery viv
 and individual neuroanatomy. This finding highlights why subject-specific calibration
 is standard practice in real-world BCI systems, rather than one-size-fits-all models.
 
-![Per-subject accuracy](results/subject_accuracy.png)
+[Per-subject accuracy] (results/subject_accuracy.png)
 
 ## Status
 🚧 In progress — classical ML (CSP + SVM) baseline complete. Deep learning (CNN)
