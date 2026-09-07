@@ -38,10 +38,37 @@ individuals do not produce strongly decodable motor imagery signals, likely due 
 
 ![Per-subject accuracy](Result1_subject_accuracy.png)
 
-## Status
-🚧 In progress — classical ML (CSP + SVM) baseline complete. Deep learning (CNN)
-comparison next.
+### 2. Classical vs. deep learning performance scales differently with data size
+| Method | 10 subjects (360 train) | 50 subjects (1,800 train) |
+|---|---|---|
+| CSP + SVM | 53.3% | **61.1%** |
+| CNN (EEGNet-style) | ~50% (overfit) | **~66%** |
+
+With only 10 subjects, the CNN overfit severely — training loss decreased steadily
+while validation accuracy stayed flat at chance level, indicating the model
+memorized training examples rather than learning generalizable patterns. Scaling to
+50 subjects resolved this: validation accuracy climbed to ~66%, modestly
+surpassing CSP+SVM at the same scale.
+
+![CNN training curves, 10 vs 50 subjects](Result2_cnn_training_curves.png)
+![CNN training curves, 50 subjects](Result3_cnn_training_curves_50subj.png)
+
+This demonstrates a well-known practical tradeoff: classical methods like CSP+SVM
+are more data-efficient and reliable with limited data, while deep learning
+requires substantially more data to learn generalizable patterns — but can
+ultimately extract more information from the signal once enough data is available.
+
+## Takeaways
+- Individual variability is a major factor in EEG-based BCI decoding — subject-specific calibration meaningfully outperforms general pooled models
+- Dataset size interacts differently with classical vs. deep learning methods; method
+  choice should depend on available data volume in practice
+- Both approaches confirm the underlying signal (imagined movement) is genuinely
+  decodable from EEG, consistent with published BCI literature
 
 ## Notebooks
 - `01_data_exploration.ipynb` — data loading, filtering, epoching, initial feature extraction
 - `02_multi_subject_pipeline.ipynb` — multi-subject CSP + SVM pipeline, within-subject vs. pooled analysis
+- `03_cnn_comparison.ipynb` — CNN implementation, 10 vs. 50 subject comparison
+
+## Tools
+Python, MNE-Python, scikit-learn, PyTorch, NumPy, Matplotlib
